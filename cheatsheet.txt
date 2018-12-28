@@ -1,0 +1,6 @@
+# Commands that Brad always forgets
+
+python manage.py makemigrations transactions
+python manage.py migrate
+
+python manage.py createsuperuser
