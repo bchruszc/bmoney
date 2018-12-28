@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def transaction_list(request):
+    return render(request, 'transactions/templates/transaction_list.html', {})
