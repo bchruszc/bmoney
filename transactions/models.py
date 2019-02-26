@@ -58,5 +58,21 @@ class Transaction(models.Model):
     # TODO:  Methods to access ammounts in a sane (readable) way
 
     def __str__(self):
-        return self.description + str(ammount)
+        return self.description + str(self.ammount)
+        
+'''
+TASK
+
+For storing uploaded files and the status of their processin
+'''
+class OFXFileTask(models.Model):
+    file = models.FileField(upload_to='documents/%Y/%m/%d')
+    #category = models.ForeignKey(Account, on_delete=models.CASCADE) -- Need to link to account?  Probably link it up after processing?
+    processed = models.IntegerField(default=-1)
+    total = models.IntegerField(default=-1)
+    
+    # Other metadata so that people can 
+    
+    def is_started(self):
+        return self.total >= 0
 

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block lead_line %}Files{% endblock %}
+
+{% block extra_script %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6">
+            <!-- Upload form. Note enctype attribute! -->
+            <form action="{% url "files" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>{{ form.non_field_errors }}</p>
+    
+                <p>{{ form.ofxfile.label_tag }} {{ form.ofxfile.help_text }}</p>
+    
+                <p>
+                    {{ form.ofxfile.errors }}
+                    {{ form.ofxfile }}
+                </p>
+    
+                <p><input type="submit" value="Upload"/></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if files %}
+<div class="container">
+    <table class="table table-hover table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Upload Date</th>
+          <th>Filename</th>
+          <th>Transactions</th>
+          <th>Processed</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for f in files %}
+        <tr>
+          <th scope="row">Date</th>
+          <td>{{ f.file }}</td>
+          <td>{{ f.total }}</td>
+          <td>{{ f.processed }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}

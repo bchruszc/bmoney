@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block lead_line %}Loggin'{% endblock %}
+
+{% block banner %}
+<!--<div class="jumbotron bg-transparent mb-0 radius-0">-->
+<!--  <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-xl-6">-->
+<!--          <h1 class="display-2">BMoney<span class="vim-caret">$</span></h1>-->
+<!--          <div class="lead mb-3 text-mono text-success">Showing you the money since 2019</div>-->
+<!--          <div class="text-mono">-->
+<!--            <a href="/register/"-->
+<!--               title="Download Theme"-->
+<!--               class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left">-->
+<!--              Register-->
+<!--            </a>-->
+<!--            <a href="/login/"-->
+<!--               class="btn btn-danger btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left">-->
+<!--              Sign In-->
+<!--            </a>-->
+<!--          </div>-->
+
+<!--          <div class="text-darkgrey text-mono my-2">Clever catchphrase here.</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--</div>-->
+{% endblock %}
+
+{% block content %}
+<div class="container ht-tm-container">
+  <div class="row">
+    <div class="col-xl-9">
+        <h2 class="display-4 ht-tm-component-title">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

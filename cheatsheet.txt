@@ -4,3 +4,14 @@ python manage.py makemigrations transactions
 python manage.py migrate
 
 python manage.py createsuperuser
+
+# References
+https://hackerthemes.com/bootstrap-themes/neon-glow/
+http://sites.google.com/site/ofxparse/
+
+# Dependency
+sudo pip install beautifulsoup4
+
+# Switch c9.io to python 3
+$ sudo mv /usr/bin/python /usr/bin/python2 
+$ sudo ln -s /usr/bin/python3 /usr/bin/python
